@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="Coding.css">  
+</head>  
+<body>
+    <div class="container">
+       <form onsubmit="sendEmail(); reset(); return false;" >
+          <h2>This is my Email conectivity</h2>
+          <input type="text" id="name"  placeholder="Your name.."required>
+          <input type="text" id="lname"  placeholder="Your last name."required>
+          <input type="email" id="email" placeholder="Your email."required>
+          <input type="number" id="Phone"  placeholder="Your phone number."required>
+          <textarea id="massage" placeholder="Your comment."required></textarea>
+          <button type="submit">send</button>
+        </form>
+      </div>
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
+      <script>
+                    function sendEmail(){
+                      Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "sulinder.faustatechnologies@gmail.com",
+            Password : "922EE363F2C1467E06242548C994015622EF",
+            To : 'ravi.faustatechnologies@gmail.com',
+            From :"sulinder.faustatechnologies@gmail.com",
+            Subject : "new Enquiery form",
+            Body : "Name: " + document.getElementById("name").value
+                  + "<br> Last Name: " + document.getElementById("lname").value
+                  + "<br> Email: " + document.getElementById("email").value
+                  + "<br> Phone Number: " + document.getElementById("Phone").value
+                  + "<br> Enter Comment: " + document.getElementById("massage").value
+
+           }).then(
+          message => alert(message )
+        );  
+        }
+
+
+      </script>
+  
+
+
+</body>
+</html>
